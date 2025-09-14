@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artikel Menarik</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #64748b;
+            --accent-color: #3b82f6;
+            --background-color: #f8fafc;
+            --text-color: #1e293b;
+            --light-gray: #e2e8f0;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            padding: 0;
+            margin: 0;
+        }
+        
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: var(--white);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .article-header {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--light-gray);
+            padding-bottom: 1.5rem;
+        }
+        
+        .article-category {
+            display: inline-block;
+            background-color: var(--light-gray);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .article-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+        
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.875rem;
+            color: var(--secondary-color);
+            margin-top: 1rem;
+        }
+        
+        .article-author {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        
+        .article-content {
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+        
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-content h2 {
+            font-size: 1.75rem;
+            margin: 2.5rem 0 1rem;
+            color: var(--text-color);
+        }
+        
+        .article-content h3 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: var(--text-color);
+        }
+        
+        .article-content blockquote {
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: var(--secondary-color);
+        }
+        
+        .article-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 2rem 0;
+            object-fit: cover;
+        }
+        
+        .article-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .tag {
+            background-color: var(--light-gray);
+            padding: 0.25rem 0.75rem;
+            border-radius: 16px;
+            font-size: 0.875rem;
+            color: var(--secondary-color);
+        }
+        
+        .related-articles {
+            margin-top: 3rem;
+            border-top: 1px solid var(--light-gray);
+            padding-top: 2rem;
+        }
+        
+        .related-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .related-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+        }
+        
+        .related-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .related-card-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+        
+        .related-card-content {
+            padding: 1rem;
+        }
+        
+        .related-card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+        
+        .article-footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--light-gray);
+            text-align: center;
+            color: var(--secondary-color);
+            font-size: 0.875rem;
+        }
+        
+        @media (max-width: 768px) {
+            .article-container {
+                padding: 1.5rem;
+            }
+            
+            .article-title {
+                font-size: 2rem;
+            }
+            
+            .article-content {
+                font-size: 1rem;
+            }
+            
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-container">
+        <header class="article-header">
+            <div class="article-category">Teknologi</div>
+            <h1 class="article-title">Perkembangan Teknologi AI dan Dampaknya pada Industri Digital</h1>
+            
+            <div class="article-meta">
+                <div class="article-author">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4a970643-d0e5-4ac0-bdb5-6b014cc0df50.png" alt="Foto penulis artikel dengan latar belakang netral" class="author-avatar">
+                    <span>Diana Putri</span>
+                </div>
+                <span>•</span>
+                <time datetime="2023-10-15">15 Oktober 2023</time>
+                <span>•</span>
+                <span>8 min read</span>
+            </div>
+        </header>
+        
+        <main class="article-content">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ad7c83d1-9bde-4858-bea1-8b74c5ef0797.png" alt="Ilustrasi kecerdasan buatan dengan visual sirkuit dan neuron digital" class="article-image">
+            
+            <p>Kecerdasan Buatan (AI) telah menjadi salah satu teknologi paling transformatif dalam beberapa tahun terakhir. Dari asisten virtual hingga kendaraan otonom, AI telah merevolusi cara kita hidup dan bekerja. Industri digital khususnya, telah mengalami perubahan signifikan berkat integrasi teknologi ini.</p>
+            
+            <p>Menurut penelitian terbaru, lebih dari 85% perusahaan di seluruh dunia telah mengintegrasikan AI dalam beberapa aspek operasional mereka. Angka ini diperkirakan akan terus meningkat seiring dengan berkembangnya kemampuan dan aksesibilitas teknologi AI.</p>
+            
+            <h2>Evolusi Teknologi AI</h2>
+            
+            <p>Perjalanan AI dimulai pada tahun 1950-an dengan pengembangan program komputer pertama yang dapat mensimulasikan pembelajaran. Namun, baru dalam dekade terakhir kita melihat percepatan signifikan berkat ketersediaan data besar (big data) dan peningkatan daya komputasi.</p>
+            
+            <blockquote>
+                "AI tidak akan menggantikan manusia, tetapi manusia yang menggunakan AI akan menggantikan manusia yang tidak menggunakan AI."
+            </blockquote>
+            
+            <p>Machine learning, cabang dari AI yang memungkinkan sistem belajar dari data tanpa pemrograman eksplisit, telah menjadi pendorong utama inovasi dalam beberapa tahun terakhir. Dengan algoritma yang semakin canggih, sistem AI sekarang dapat mengenali pola, membuat prediksi, dan bahkan berkreasi dengan cara yang sebelumnya tidak terbayangkan.</p>
+            
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8cacc146-0f25-4505-9ee7-5ae2ea4799b9.png" alt="Grafik pertumbuhan adopsi AI dalam berbagai industri dari tahun 2015 hingga 2023" class="article-image">
+            
+            <h2>Dampak pada Industri Digital</h2>
+            
+            <h3>1. Personalisasi Pengalaman Pengguna</h3>
+            
+            <p>Platform digital sekarang menggunakan AI untuk memberikan pengalaman yang sangat dipersonalisasi bagi pengguna. Rekomendasi konten, iklan bertarget, dan antarmuka yang menyesuaikan diri dengan preferensi pengguna telah menjadi standar baru dalam industri.</p>
+            
+            <h3>2. Otomatisasi Proses</h3>
+            
+            <p>Banyak tugas berulang dan berbasis aturan sekarang dapat diotomatiskan dengan AI. Hal ini tidak hanya meningkatkan efisiensi tetapi juga memungkinkan tenaga manusia untuk fokus pada tugas-tugas yang membutuhkan kreativitas dan pemikiran strategis.</p>
+            
+            <h3>3. Analisis Data yang Lebih Mendalam</h3>
+            
+            <p>Dengan kemampuan untuk memproses dan menganalisis volume data yang sangat besar, AI membantu perusahaan mendapatkan wawasan yang sebelumnya tidak terlihat. Ini mengarah pada pengambilan keputusan yang lebih baik dan strategi bisnis yang lebih efektif.</p>
+            
+            <div class="article-tags">
+                <span class="tag">AI</span>
+                <span class="tag">Teknologi</span>
+                <span class="tag">Digital</span>
+                <span class="tag">Inovasi</span>
+                <span class="tag">Machine Learning</span>
+            </div>
+        </main>
+        
+        <section class="related-articles">
+            <h2 class="related-title">Artikel Terkait</h2>
+            
+            <div class="related-grid">
+                <article class="related-card">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/83db2719-ab9e-4607-adba-93883636ec1f.png" alt="Ilustrasi machine learning dengan diagram dan grafik jaringan saraf" class="related-card-image">
+                    <div class="related-card-content">
+                        <h3 class="related-card-title">Memahami Dasar-dasar Machine Learning untuk Pemula</h3>
+                    </div>
+                </article>
+                
+                <article class="related-card">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b200094c-f06a-4167-b534-ed265aaf89a5.png" alt="Ilustrasi etika teknologi dengan timbangan dan simbol digital" class="related-card-image">
+                    <div class="related-card-content">
+                        <h3 class="related-card-title">Etika dalam Pengembangan Teknologi AI Modern</h3>
+                    </div>
+                </article>
+                
+                <article class="related-card">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6936a92a-9628-4734-8f06-45c198ca4fc6.png" alt="Ilustrasi transformasi digital dengan panah yang menunjukkan pertumbuhan" class="related-card-image">
+                    <div class="related-card-content">
+                        <h3 class="related-card-title">Bagaimana Transformasi Digital Mengubah Bisnis Tradisional</h3>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        <footer class="article-footer">
+            <p>© 2023 Media Digital. Semua hak dilindungi.</p>
+        </footer>
+    </div>
+</body>
+</html>
